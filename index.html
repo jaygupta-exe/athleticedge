@@ -29,7 +29,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Custom cursor everywhere */
+        }
+
+        /* Custom cursor only on non-touch devices */
+        @media (hover: hover) and (pointer: fine) {
+            * { cursor: none; }
         }
 
         html {
@@ -364,17 +368,85 @@
             flex-direction: column;
             gap: 6px;
             width: 30px;
+            cursor: pointer;
+            z-index: 1002;
+            padding: 5px;
         }
 
         .mobile-toggle span {
             display: block;
             height: 2px;
+            width: 100%;
             background-color: var(--white);
             transition: 0.3s ease;
+            transform-origin: center;
         }
         
         .navbar.scrolled .mobile-toggle span {
             background-color: var(--brown-dark);
+        }
+
+        /* Hamburger open animation */
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(61, 43, 31, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1001;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold-accent);
+        }
+
+        .mobile-menu .mobile-cta {
+            margin-top: 1rem;
+            padding: 1rem 2.5rem;
+            background-color: var(--gold-accent);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            text-decoration: none;
         }
 
         /* Hero Section */
@@ -1212,6 +1284,29 @@
             .top-banner a { display: block; margin-top: 0.3rem; margin-left: 0; }
             .navbar { top: 50px; } /* taller on mobile for two lines in top banner */
             section { padding: 4rem 0; }
+
+            /* Hide custom cursor on mobile */
+            .cursor-dot, .cursor-ring { display: none !important; }
+
+            /* Hero mobile optimization */
+            .hero-bg {
+                background-position: 70% center;
+                background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=60');
+            }
+            .hero-overlay {
+                background: linear-gradient(to bottom, rgba(61,43,31,0.9) 0%, rgba(13,13,13,0.6) 100%);
+            }
+            .hero-content {
+                padding-left: 1rem;
+            }
+
+            /* Navbar logo scale fix for mobile */
+            .navbar-logo-img {
+                transform: scale(1.2) translateY(0);
+            }
+            .navbar.scrolled .navbar-logo-img {
+                transform: scale(1.0) translateY(0);
+            }
         }
     </style>
 </head>
@@ -1254,13 +1349,23 @@
             </ul>
             <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary nav-btn hover-target"><span>Book Free Demo</span></a>
             
-            <div class="mobile-toggle hover-target">
+            <div class="mobile-toggle hover-target" id="mobile-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#services">Services</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#schedule">Schedule</a>
+        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="mobile-cta">Book Free Demo</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1955,6 +2060,34 @@
                 }
             });
         });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('open');
+                document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+            });
+
+            // Close menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // Hide custom cursor on touch devices
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            cursorDot.style.display = 'none';
+            cursorRing.style.display = 'none';
+        }
 
     </script>
 </body>
