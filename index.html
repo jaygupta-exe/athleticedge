@@ -22,6 +22,19 @@
             --black: #0D0D0D;
             --gold-accent: #C8A97E;
             --text-muted: #8A7568;
+            --gradient-btn: linear-gradient(135deg, #6B4F3B 0%, #9C7B65 50%, #C8A97E 100%);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-btn);
+            z-index: 10002;
+            width: 0%;
+            transition: width 0.05s linear;
         }
 
         /* Reset & Base Styles */
@@ -65,17 +78,29 @@
             text-transform: uppercase;
         }
 
+        .top-banner .pulse-text {
+            animation: bannerPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes bannerPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; text-shadow: 0 0 8px rgba(200, 169, 126, 0.6); }
+        }
+
         .top-banner a {
             color: var(--cream);
             text-decoration: none;
             font-weight: 500;
             margin-left: 1rem;
             border-bottom: 1px solid var(--gold-accent);
-            transition: color 0.3s;
+            transition: all 0.3s;
+            padding: 0.2rem 0.5rem;
         }
         
         .top-banner a:hover {
-            color: var(--gold-accent);
+            color: var(--brown-dark);
+            background-color: var(--gold-accent);
+            border-bottom-color: transparent;
         }
 
         /* Custom Cursor */
@@ -154,19 +179,36 @@
             font-family: 'DM Sans', sans-serif;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             font-size: 0.9rem;
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            transition: color 0.4s ease, transform 0.3s ease;
-            cursor: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 2px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(107, 79, 59, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
         }
 
         .btn-primary {
-            background-color: var(--brown-primary);
+            background: var(--gradient-btn);
             color: var(--cream);
-            border: 1px solid var(--brown-primary);
+            border: none;
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .btn-primary::before {
@@ -176,13 +218,17 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background-color: var(--brown-dark);
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 100%);
             transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
             z-index: 1;
         }
 
         .btn-primary:hover::before {
             transform: translateX(100%);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 35px rgba(200, 169, 126, 0.4);
         }
 
         .btn-primary span {
@@ -193,7 +239,8 @@
         .btn-outline {
             background-color: transparent;
             color: var(--cream);
-            border: 1px solid var(--cream);
+            border: 1px solid rgba(245, 241, 235, 0.5);
+            backdrop-filter: blur(4px);
         }
 
         .btn-outline::before {
@@ -210,6 +257,7 @@
 
         .btn-outline:hover {
             color: var(--brown-dark);
+            border-color: var(--cream);
         }
 
         .btn-outline:hover::before {
@@ -273,16 +321,18 @@
             width: 100%;
             padding: 2rem 0;
             z-index: 1000;
-            transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, top 0.4s ease;
+            transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, top 0.4s ease, backdrop-filter 0.4s ease;
+            backdrop-filter: blur(0px);
         }
 
         .navbar.scrolled {
             top: 0; /* Align to top when scrolled */
             padding: 1rem 0;
-            background-color: rgba(245, 241, 235, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            background-color: rgba(245, 241, 235, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(200, 169, 126, 0.1);
         }
 
         .nav-container {
@@ -478,8 +528,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(61,43,31,0.85) 0%, rgba(13,13,13,0.4) 100%);
+            background: 
+                linear-gradient(135deg, rgba(61,43,31,0.92) 0%, rgba(61,43,31,0.7) 40%, rgba(13,13,13,0.5) 100%),
+                radial-gradient(ellipse at 30% 50%, rgba(200, 169, 126, 0.08) 0%, transparent 70%);
             z-index: 1;
+            backdrop-filter: blur(2px);
         }
 
         .hero-content {
@@ -502,9 +555,10 @@
 
         .hero-title {
             font-size: clamp(3rem, 6vw, 120px);
-            line-height: 0.9;
-            margin-bottom: 1rem;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
             color: var(--cream);
+            letter-spacing: 0.02em;
         }
 
         .hero-title .word {
@@ -572,9 +626,29 @@
         /* Trust Stats  */
         .trust-stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             text-align: center;
             gap: 2rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            border-right: 1px solid rgba(200, 169, 126, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
         }
         
         .stat-number {
@@ -699,12 +773,28 @@
             padding: 3rem 2rem;
             background: var(--white);
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border-bottom: 2px solid var(--gold-accent);
-            transition: transform 0.4s;
+            border-bottom: 3px solid var(--gold-accent);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, transparent 60%, rgba(200, 169, 126, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
         
         .why-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(107, 79, 59, 0.12);
+        }
+
+        .why-card:hover::after {
+            opacity: 1;
         }
 
         /* Testimonials */
@@ -715,14 +805,18 @@
         }
         
         .testimonial-card {
-            background-color: var(--black);
+            background: linear-gradient(145deg, rgba(13,13,13,0.9) 0%, rgba(61,43,31,0.4) 100%);
             padding: 3rem;
-            border: 1px solid rgba(200, 169, 126, 0.2);
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(200, 169, 126, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .testimonial-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: rgba(200, 169, 126, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(200, 169, 126, 0.05);
         }
 
         .stars {
@@ -936,7 +1030,7 @@
         .pricing-card:hover {
             transform: translateY(-12px);
             border-color: var(--gold-accent);
-            box-shadow: 0 20px 40px rgba(107, 79, 59, 0.1);
+            box-shadow: 0 20px 40px rgba(107, 79, 59, 0.1), 0 0 20px rgba(200, 169, 126, 0.15);
         }
         
         @keyframes pulseGlow {
@@ -1050,7 +1144,7 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .gallery-item {
@@ -1068,7 +1162,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         .gallery-overlay {
@@ -1083,7 +1177,7 @@
         }
 
         .gallery-item:hover .gallery-img {
-            transform: scale(1.05);
+            transform: scale(1.12);
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -1216,8 +1310,8 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 62px;
+            height: 62px;
             background-color: #25d366;
             color: white;
             border-radius: 50%;
@@ -1228,13 +1322,29 @@
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             z-index: 100;
             text-decoration: none;
-            animation: float 3s ease-in-out infinite;
+            animation: whatsappBounce 2s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+        .whatsapp-float::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #25d366;
+            animation: whatsappRipple 2s ease-out infinite;
+        }
+
+        @keyframes whatsappBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            30% { transform: translateY(-8px) scale(1.05); }
+            50% { transform: translateY(0) scale(1); }
+            70% { transform: translateY(-4px) scale(1.02); }
+        }
+
+        @keyframes whatsappRipple {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.8); opacity: 0; }
         }
 
         /* Dividers */
@@ -1264,7 +1374,8 @@
             .schedule-blocks { grid-template-columns: 1fr; }
             .why-us-grid { grid-template-columns: repeat(2, 1fr); }
             .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-            .trust-stats-grid { gap: 1rem; }
+            .trust-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .stat-item:nth-child(2) { border-right: none; }
         }
 
         @media (max-width: 768px) {
@@ -1279,7 +1390,9 @@
             .pricing-tabs { flex-direction: column; align-items: center; gap: 1.5rem; }
             
             .why-us-grid, .testimonials-grid { grid-template-columns: 1fr; }
-            .trust-stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .trust-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .stat-item { border-right: none; border-bottom: 1px solid rgba(200, 169, 126, 0.15); padding-bottom: 2rem; }
+            .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
             .top-banner { font-size: 0.75rem; padding: 0.5rem 0; }
             .top-banner a { display: block; margin-top: 0.3rem; margin-left: 0; }
             .navbar { top: 50px; } /* taller on mobile for two lines in top banner */
@@ -1312,6 +1425,9 @@
 </head>
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
     <!-- Preloader -->
     <div class="preloader" id="preloader">
         <img src="assests/final%20logo.png" alt="The Athletic Edge" class="preloader-logo">
@@ -1323,8 +1439,8 @@
     
     <!-- Top Banner -->
     <div class="top-banner">
-        Limited Slots Available 
-        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="hover-target">Book Free Trial</a>
+        <span class="pulse-text">⚡ Limited Slots Available</span> 
+        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="hover-target">Book Free Trial →</a>
     </div>
 
     <!-- Floating WhatsApp -->
@@ -1401,17 +1517,25 @@
     <!-- Trust Stats Section -->
     <section class="bg-dark" style="padding: 4rem 0; border-top: 1px solid var(--gold-accent); border-bottom: 1px solid var(--brown-primary);">
         <div class="container trust-stats-grid reveal-up">
-            <div>
+            <div class="stat-item">
+                <div class="stat-icon">🏆</div>
                 <div class="stat-number" style="font-variant-numeric: tabular-nums;">5000+</div>
                 <div class="font-label" style="color: var(--cream);">Clients Transformed</div>
             </div>
-            <div>
+            <div class="stat-item">
+                <div class="stat-icon">⏳</div>
                 <div class="stat-number">15+</div>
                 <div class="font-label" style="color: var(--cream);">Years Experience</div>
             </div>
-            <div>
+            <div class="stat-item">
+                <div class="stat-icon">🎖️</div>
                 <div class="stat-number">100%</div>
                 <div class="font-label" style="color: var(--cream);">Certified Trainers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">💎</div>
+                <div class="stat-number">A+</div>
+                <div class="font-label" style="color: var(--cream);">Premium Equipment</div>
             </div>
         </div>
     </section>
@@ -1984,9 +2108,17 @@
         // Parallax & Sticky Navbar
         const navbar = document.getElementById('navbar');
         const heroBg = document.getElementById('hero-bg');
+        const scrollProgress = document.getElementById('scroll-progress');
         
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
+            
+            // Scroll Progress Bar
+            if (scrollProgress) {
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollY / docHeight) * 100;
+                scrollProgress.style.width = scrollPercent + '%';
+            }
             
             // Navbar shrink (Triggered slightly later to account for top banner)
             if (scrollY > 50) {
