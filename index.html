@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Athletic Edge | Premium Pilates Studio & Gym in Ludhiana</title>
+    <meta name="description" content="Transform Your Body. Elevate Your Lifestyle. Boutique fitness studio in Ludhiana offering personalized training, reformer Pilates, and holistic fitness approaches.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --brown-primary: #6B4F3B;
+            --cream: #F5F1EB;
+            --brown-dark: #3D2B1F;
+            --brown-mid: #9C7B65;
+            --white: #FFFFFF;
+            --black: #0D0D0D;
+            --gold-accent: #C8A97E;
+            --text-muted: #8A7568;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Custom cursor everywhere */
+        }
+
+        html {
+            scroll-behavior: auto; /* Handled by JS for smooth scroll */
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--black);
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: var(--brown-dark);
+            color: var(--gold-accent);
+            padding: 0.8rem 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .top-banner a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 1rem;
+            border-bottom: 1px solid var(--gold-accent);
+            transition: color 0.3s;
+        }
+        
+        .top-banner a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Custom Cursor */
+        .cursor-dot {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background-color: var(--brown-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--brown-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+        }
+
+        .cursor-hover .cursor-ring {
+            width: 56px;
+            height: 56px;
+            background-color: rgba(107, 79, 59, 0.1);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .font-subheading {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .font-label {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Global Layout & Utilities */
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 7rem 0;
+            position: relative;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease, transform 0.3s ease;
+            cursor: none;
+        }
+
+        .btn-primary {
+            background-color: var(--brown-primary);
+            color: var(--cream);
+            border: 1px solid var(--brown-primary);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--brown-dark);
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 1;
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--cream);
+            border: 1px solid var(--cream);
+        }
+
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--cream);
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 1;
+        }
+
+        .btn-outline:hover {
+            color: var(--brown-dark);
+        }
+
+        .btn-outline:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-outline span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-clip {
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+            transition: clip-path 1s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .reveal-clip.in-view {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Page Load Animation Sequence */
+        .preloader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--brown-dark);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: top 1s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+        
+        .preloader-logo {
+            width: 350px;
+            height: auto;
+            animation: pulseFade 1.5s infinite alternate;
+        }
+
+        @keyframes pulseFade {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 38px; /* Offset for top banner */
+            left: 0;
+            width: 100%;
+            padding: 2rem 0;
+            z-index: 1000;
+            transition: padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, top 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            top: 0; /* Align to top when scrolled */
+            padding: 1rem 0;
+            background-color: rgba(245, 241, 235, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.4s ease;
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--brown-dark);
+        }
+
+        .navbar-logo-img {
+            height: 55px; /* Restored layout height to fix overlap */
+            width: auto;
+            transform: scale(1.8) translateY(-4px); /* Scale visually and perfectly center */
+            transform-origin: left center;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled .navbar-logo-img {
+            filter: brightness(0);
+            transform: scale(1.4) translateY(0); /* Shrink slightly on scroll */
+        }
+
+        .logo-mark {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--gold-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--brown-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold-accent);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            width: 30px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            height: 2px;
+            background-color: var(--white);
+            transition: 0.3s ease;
+        }
+        
+        .navbar.scrolled .mobile-toggle span {
+            background-color: var(--brown-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--black);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=60');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(61,43,31,0.85) 0%, rgba(13,13,13,0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 2rem;
+            border-left: 1px solid var(--gold-accent);
+            max-width: 800px;
+        }
+
+        .hero-label {
+            color: var(--gold-accent);
+            font-size: 11px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 120px);
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            color: var(--cream);
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 2.5vw, 40px);
+            color: var(--gold-accent);
+            margin-bottom: 2rem;
+            opacity: 0;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--cream);
+            margin-bottom: 2rem;
+            opacity: 0;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.7;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+        }
+
+        .chevron {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--cream);
+            border-bottom: 2px solid var(--cream);
+            transform: rotate(45deg);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+            40% { transform: translateY(-10px) rotate(45deg); }
+            60% { transform: translateY(-5px) rotate(45deg); }
+        }
+
+        /* Trust Stats  */
+        .trust-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 2rem;
+        }
+        
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            color: var(--gold-accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .section-header.left-aligned {
+            text-align: left;
+        }
+
+        .section-label {
+            color: var(--brown-mid);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 60px);
+            color: var(--brown-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .bg-cream { background-color: var(--cream); }
+        .bg-dark { background-color: var(--brown-dark); color: var(--cream); }
+        .bg-dark .section-title { color: var(--cream); }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 3rem 2rem;
+            border-top: 3px solid var(--brown-primary);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--brown-primary);
+            transition: height 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(107, 79, 59, 0.15);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-accent);
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--cream);
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--brown-dark);
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-title {
+            color: var(--cream);
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-desc {
+            color: rgba(245, 241, 235, 0.8);
+        }
+
+        /* Why Choose Us */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .why-card {
+            padding: 3rem 2rem;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 2px solid var(--gold-accent);
+            transition: transform 0.4s;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--black);
+            padding: 3rem;
+            border: 1px solid rgba(200, 169, 126, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: #C8A97E;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* Philosophy Section */
+        .philosophy-split {
+            display: flex;
+            align-items: center;
+        }
+
+        .philosophy-img-wrap {
+            flex: 1;
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        .philosophy-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: scale(1.1);
+            transition: transform 1.5s ease-out;
+        }
+        
+        .philosophy-img.in-view {
+            transform: scale(1);
+        }
+
+        .philosophy-content {
+            flex: 1;
+            padding: 5rem 6rem;
+            background-color: var(--cream);
+            margin-left: -5%; /* Overlap effect */
+            z-index: 2;
+            position: relative;
+            box-shadow: -20px 0 50px rgba(0,0,0,0.05);
+        }
+
+        .philosophy-desc {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--black);
+            margin-bottom: 3rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+        }
+
+        .philosophy-list {
+            list-style: none;
+        }
+
+        .philosophy-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--brown-dark);
+        }
+
+        .check-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            color: var(--gold-accent);
+            font-size: 0.8rem;
+        }
+
+        /* About / Coaches Section */
+        .coaches-wrap {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-end;
+        }
+
+        .coach-card {
+            flex: 1;
+            background-color: var(--black);
+            border: 1px solid rgba(200, 169, 126, 0.2);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .coach-card.large {
+            flex: 1.2;
+            padding-bottom: 4rem;
+        }
+
+        .coach-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold-accent);
+            margin-bottom: 2rem;
+            filter: grayscale(30%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .coach-card:hover .coach-img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .coach-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .coach-title {
+            color: var(--gold-accent);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .coach-creds, .coach-stats {
+            color: rgba(245, 241, 235, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .stat-highlight {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        /* Pricing Section */
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(156, 123, 101, 0.3);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            padding-bottom: 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--brown-dark);
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold-accent);
+            transition: width 0.3s;
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        .pricing-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .pricing-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            padding: 3rem;
+            border: 1px solid rgba(156, 123, 101, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--gold-accent);
+            box-shadow: 0 20px 40px rgba(107, 79, 59, 0.1);
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(200, 169, 126, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(200, 169, 126, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 169, 126, 0); }
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--gold-accent);
+            position: relative;
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            animation: pulseGlow 2.5s infinite;
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.02) translateY(-12px);
+            animation: none;
+            box-shadow: 0 20px 40px rgba(200, 169, 126, 0.3);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--gold-accent);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            color: var(--brown-dark);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(156, 123, 101, 0.2);
+            padding-bottom: 1.5rem;
+        }
+
+        .price-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .price-duration {
+            color: var(--text-muted);
+        }
+
+        .price-amount {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--brown-dark);
+        }
+
+        /* Schedule Section */
+        .schedule-blocks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .schedule-block {
+            border-top: 1px solid rgba(245, 241, 235, 0.2);
+            padding-top: 3rem;
+        }
+
+        .schedule-title {
+            font-size: 2rem;
+            color: var(--gold-accent);
+            margin-bottom: 2rem;
+        }
+
+        .time-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .time-label {
+            width: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: rgba(245, 241, 235, 0.6);
+        }
+
+        .time-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .gallery-item:nth-child(2) {
+            grid-row: span 2;
+            height: auto;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(61,43,31,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            color: var(--gold-accent);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-text {
+            transform: translateY(0);
+        }
+
+        /* Social / Instagram */
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .ig-item {
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Contact & Footer */
+        .contact-split {
+            display: flex;
+            background-color: var(--black);
+            margin-top: -2rem;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            flex: 1;
+            padding: 6rem 5rem;
+            color: var(--cream);
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .contact-value {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .contact-value a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-value a:hover {
+            color: var(--gold-accent);
+        }
+
+        .map-container {
+            flex: 1;
+            min-height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) invert(90%) hue-rotate(180deg); /* Dark mode map styling */
+        }
+
+        footer {
+            background-color: #050505;
+            color: #666;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 120px;
+            width: auto;
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .copy {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Dividers */
+        .divider {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 5;
+        }
+        
+        .divider-top {
+            top: -99px;
+        }
+
+        .divider svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .philosophy-split, .coaches-wrap, .contact-split { flex-direction: column; }
+            .philosophy-content { margin-left: 0; margin-top: -5%; padding: 4rem 2rem; }
+            .philosophy-img-wrap { height: 50vh; width: 100%; }
+            .schedule-blocks { grid-template-columns: 1fr; }
+            .why-us-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .trust-stats-grid { gap: 1rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.5rem; }
+            .nav-links, .nav-btn { display: none; }
+            .mobile-toggle { display: flex; }
+            .services-grid, .pricing-grid, .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item:nth-child(2) { grid-row: auto; }
+            .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-btns { flex-direction: column; width: 100%; gap: 1rem; }
+            .btn { text-align: center; }
+            .pricing-tabs { flex-direction: column; align-items: center; gap: 1.5rem; }
+            
+            .why-us-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .trust-stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .top-banner { font-size: 0.75rem; padding: 0.5rem 0; }
+            .top-banner a { display: block; margin-top: 0.3rem; margin-left: 0; }
+            .navbar { top: 50px; } /* taller on mobile for two lines in top banner */
+            section { padding: 4rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <img src="assests/final%20logo.png" alt="The Athletic Edge" class="preloader-logo">
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    
+    <!-- Top Banner -->
+    <div class="top-banner">
+        Limited Slots Available 
+        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="hover-target">Book Free Trial</a>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="whatsapp-float hover-target">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo hover-target">
+                <img src="assests/final%20logo.png" alt="The Athletic Edge" class="navbar-logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services" class="hover-target">Services</a></li>
+                <li><a href="#philosophy" class="hover-target">Philosophy</a></li>
+                <li><a href="#about" class="hover-target">About</a></li>
+                <li><a href="#pricing" class="hover-target">Pricing</a></li>
+                <li><a href="#schedule" class="hover-target">Schedule</a></li>
+            </ul>
+            <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary nav-btn hover-target"><span>Book Free Demo</span></a>
+            
+            <div class="mobile-toggle hover-target">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container relative">
+            <div class="hero-content">
+                <div class="hero-label font-label">Boutique Fitness Studio · Ludhiana</div>
+                <h1 class="hero-title font-display" id="hero-title">
+                    <span class="line-1">THE ATHLETIC</span><br>
+                    <span class="line-2">EDGE</span>
+                </h1>
+                <div class="hero-subtitle font-subheading">Pilates Studio & Gym</div>
+                <p class="hero-tagline">Transform Your Body. Elevate Your Lifestyle.</p>
+                
+                <div class="hero-btns">
+                    <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary hover-target"><span>Join Now</span></a>
+                    <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-outline hover-target"><span>Book Free Demo</span></a>
+                </div>
+                
+                <p class="hero-urgency reveal-up" style="font-size: 0.95rem; color: var(--gold-accent); margin-top: 2rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500;">
+                    <span style="font-size:1.1rem; vertical-align:middle; margin-right:5px;">⚡</span> Limited Slots Available
+                </p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="chevron"></div>
+        </div>
+    </section>
+
+    <!-- Trust Stats Section -->
+    <section class="bg-dark" style="padding: 4rem 0; border-top: 1px solid var(--gold-accent); border-bottom: 1px solid var(--brown-primary);">
+        <div class="container trust-stats-grid reveal-up">
+            <div>
+                <div class="stat-number" style="font-variant-numeric: tabular-nums;">5000+</div>
+                <div class="font-label" style="color: var(--cream);">Clients Transformed</div>
+            </div>
+            <div>
+                <div class="stat-number">15+</div>
+                <div class="font-label" style="color: var(--cream);">Years Experience</div>
+            </div>
+            <div>
+                <div class="stat-number">100%</div>
+                <div class="font-label" style="color: var(--cream);">Certified Trainers</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-cream" id="services">
+        <div class="container">
+            <div class="section-header reveal-clip">
+                <div class="section-label font-label">What We Offer</div>
+                <h2 class="section-title">World-Class Training,<br>Tailored For You</h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Cards generated dynamically or hardcoded below -->
+                <div class="service-card reveal-up hover-target">
+                    <div class="service-content">
+                        <div class="service-icon">⚲</div>
+                        <h3 class="service-title">Reformer Pilates</h3>
+                        <p class="service-desc">Core strength through precision movement and controlled resistance for a sculpted physique.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal-up hover-target" style="transition-delay: 0.1s">
+                    <div class="service-content">
+                        <div class="service-icon">⑀</div>
+                        <h3 class="service-title">Strength Training</h3>
+                        <p class="service-desc">Build functional, athletic physique with guided, science-based lifting protocols.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up hover-target" style="transition-delay: 0.2s">
+                    <div class="service-content">
+                        <div class="service-icon">⚡</div>
+                        <h3 class="service-title">HIIT & CrossFit</h3>
+                        <p class="service-desc">High-intensity, results-driven conditioning tailored to maximize caloric burn.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up hover-target">
+                    <div class="service-content">
+                        <div class="service-icon">👤</div>
+                        <h3 class="service-title">Personal Training</h3>
+                        <p class="service-desc">1:1 expert-guided programming designed specifically around your unique body and goals.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up hover-target" style="transition-delay: 0.1s">
+                    <div class="service-content">
+                        <div class="service-icon">⚖</div>
+                        <h3 class="service-title">Fat Loss Diets</h3>
+                        <p class="service-desc">Sustainable, science-backed nutrition strategies to complement your training.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up hover-target" style="transition-delay: 0.2s">
+                    <div class="service-content">
+                        <div class="service-icon">⚕</div>
+                        <h3 class="service-title">Disease Management</h3>
+                        <p class="service-desc">Therapeutic movement and wellness strategies for specialized health needs.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal-up hover-target">
+                    <div class="service-content">
+                        <div class="service-icon">♪</div>
+                        <h3 class="service-title">Zumba & Dance</h3>
+                        <p class="service-desc">Joyful cardio sessions suitable for all fitness levels in an energetic environment.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up hover-target" style="transition-delay: 0.1s">
+                    <div class="service-content">
+                        <div class="service-icon">☯</div>
+                        <h3 class="service-title">Yoga & Spa</h3>
+                        <p class="service-desc">Restore balance, flexibility, and mind-body connection in our tranquil space.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up hover-target" style="transition-delay: 0.2s">
+                    <div class="service-content">
+                        <div class="service-icon">💊</div>
+                        <h3 class="service-title">Premium Supplements</h3>
+                        <p class="service-desc">Curated quality nutrition support to fuel your recovery and performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="bg-cream" id="philosophy" style="padding-top: 0;">
+        <div class="philosophy-split container">
+            <div class="philosophy-img-wrap">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=60" alt="Pilates Studio" class="philosophy-img" loading="lazy">
+            </div>
+            <div class="philosophy-content reveal-up">
+                <div class="section-label font-label">Our Philosophy</div>
+                <h2 class="section-title">Boutique Training.<br>Premium Results.</h2>
+                <p class="philosophy-desc">At The Athletic Edge, we combine the precision of Pilates with the power of strength training, offering a truly holistic approach to fitness in a private, luxurious environment. Every session is designed around you.</p>
+                
+                <ul class="philosophy-list">
+                    <li><div class="check-circle">✓</div> Boutique Classes (max 6 per session)</li>
+                    <li><div class="check-circle">✓</div> Personalised Training Programs</li>
+                    <li><div class="check-circle">✓</div> Private & Exclusive Environment</li>
+                    <li><div class="check-circle">✓</div> Expert Certified Trainers</li>
+                    <li><div class="check-circle">✓</div> Flexible Scheduling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="bg-cream" id="why-us" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header reveal-clip">
+                <div class="section-label font-label">The Athletic Edge Difference</div>
+                <h2 class="section-title">Why Choose Us</h2>
+            </div>
+            
+            <div class="why-us-grid">
+                <div class="why-card reveal-up hover-target">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--brown-dark); margin-bottom: 1rem;">Personalized Coaching</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Every session is tailored specifically to your body type, limitations, and fitness goals.</p>
+                </div>
+                
+                <div class="why-card reveal-up hover-target" style="transition-delay: 0.1s">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--brown-dark); margin-bottom: 1rem;">Small Batch Training</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">We keep our classes tight-knit (max 6) to ensure absolute attention to your form and posture.</p>
+                </div>
+                
+                <div class="why-card reveal-up hover-target" style="transition-delay: 0.2s">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">✨</div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--brown-dark); margin-bottom: 1rem;">Premium Environment</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Train in a luxurious, impeccably clean sanctuary designed for comfort and focus.</p>
+                </div>
+                
+                <div class="why-card reveal-up hover-target" style="transition-delay: 0.3s">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎖️</div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--brown-dark); margin-bottom: 1rem;">Expert Trainers</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Learn from coaches carrying globally recognized certifications through ACE, ISSA & ACSM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-dark" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal-clip">
+                <div class="section-label font-label" style="color: var(--gold-accent);">Client Success</div>
+                <h2 class="section-title">Real Transformations</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal-up hover-target">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-style: italic; color: rgba(245, 241, 235, 0.8);">"The level of personal attention and expertise here is unmatched. It truly changed my life and how I perceive fitness. Highly recommend the 3-2-1 program!"</p>
+                    <div class="font-label" style="color: var(--gold-accent);">— Ananya S.</div>
+                </div>
+                
+                <div class="testimonial-card reveal-up hover-target" style="transition-delay: 0.1s">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-style: italic; color: rgba(245, 241, 235, 0.8);">"I transitioned from a commercial gym to Athletic Edge, and the boutique environment makes all the difference. Harry's coaching is deeply rooted in science."</p>
+                    <div class="font-label" style="color: var(--gold-accent);">— Rohan K.</div>
+                </div>
+                
+                <div class="testimonial-card reveal-up hover-target" style="transition-delay: 0.2s">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-style: italic; color: rgba(245, 241, 235, 0.8);">"Srishti's Pilates sessions completely fixed my chronic back pain. The studio is beautiful, the trainers are caring, and the results speak for themselves."</p>
+                    <div class="font-label" style="color: var(--gold-accent);">— Meher D.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Coaches -->
+    <section class="bg-dark" id="about" style="padding-top: 3rem;">
+        
+        <div class="container">
+            <div class="section-header reveal-clip">
+                <div class="section-label font-label" style="color: var(--gold-accent);">Meet Your Coaches</div>
+                <h2 class="section-title">Expert Guidance.<br>Extraordinary Results.</h2>
+            </div>
+            
+            <div class="coaches-wrap">
+                <div class="coach-card large reveal-up">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=300&q=80" alt="Harry Mittal" class="coach-img">
+                    <h3 class="coach-name">Harry Mittal</h3>
+                    <div class="coach-title font-label">Founder & Head Coach</div>
+                    <p class="coach-creds">Certified by ACE, ISSA & ACSM</p>
+                    <p class="coach-stats"><span class="stat-highlight">15+ Years</span> Experience | <span class="stat-highlight">5000+</span> Clients Transformed</p>
+                    <p style="margin-top: 1.5rem; color: rgba(245, 241, 235, 0.7); font-weight: 300;">With over a decade and a half of elite fitness experience, Harry brings a wealth of scientific knowledge and practical expertise to every training session, specializing in transformative body recomposition.</p>
+                </div>
+                
+                <div class="coach-card reveal-up" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Srishti Behal Mittal" class="coach-img">
+                    <h3 class="coach-name">Srishti Behal Mittal</h3>
+                    <div class="coach-title font-label">Co-Founder · Pilates & Nutrition Expert</div>
+                    <p class="coach-creds">Certified Nutritionist & Pilates Instructor</p>
+                    <p class="coach-stats"><span class="stat-highlight">10+ Years</span> Experience | <span class="stat-highlight">Global</span> Clientele</p>
+                    <p style="margin-top: 1.5rem; color: rgba(245, 241, 235, 0.7); font-weight: 300;">Integrating holistic nutrition with the art of Pilates, Srishti empowers clients globally to achieve sustainable wellness, flexibility, and core strength.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="bg-cream" id="pricing">
+        <div class="container">
+            <div class="section-header reveal-clip">
+                <div class="section-label font-label">Investment In Yourself</div>
+                <h2 class="section-title">Transparent Pricing.<br>Unmatched Value.</h2>
+            </div>
+            
+            <div class="pricing-tabs">
+                <button class="tab-btn active hover-target" data-tab="pilates">Pilates</button>
+                <button class="tab-btn hover-target" data-tab="gym">Gym & PT</button>
+                <button class="tab-btn hover-target" data-tab="combo">Combo Plans</button>
+            </div>
+            
+            <!-- Pilates Tab -->
+            <div class="pricing-content active" id="tab-pilates">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span style="background-color: var(--brown-primary); color: white; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 500; letter-spacing: 0.1em; font-size: 0.9rem;">DROP-IN SESSION: ₹500</span>
+                </div>
+                <div class="pricing-grid">
+                    
+                    <div class="pricing-card reveal-up">
+                        <h3 class="pricing-title">3 Days / Week</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Month</span> <span class="price-amount">₹6,000</span></li>
+                            <li class="price-item"><span class="price-duration">3 Months</span> <span class="price-amount">₹16,000</span></li>
+                            <li class="price-item"><span class="price-duration">6 Months</span> <span class="price-amount">₹30,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-outline hover-target" style="color: var(--brown-dark); border-color: var(--brown-dark);"><span>Book Demo</span></a>
+                    </div>
+                    
+                    <div class="pricing-card popular reveal-up" style="transition-delay: 0.1s">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3 class="pricing-title">5 Days / Week</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Month</span> <span class="price-amount">₹8,000</span></li>
+                            <li class="price-item"><span class="price-duration">3 Months</span> <span class="price-amount">₹21,000</span></li>
+                            <li class="price-item"><span class="price-duration">6 Months</span> <span class="price-amount">₹40,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary hover-target"><span>Book Demo</span></a>
+                    </div>
+                    
+                    <div class="pricing-card reveal-up" style="transition-delay: 0.2s">
+                        <h3 class="pricing-title">Private Pilates</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Session</span> <span class="price-amount">₹1,500</span></li>
+                            <li class="price-item"><span class="price-duration">12 Sessions</span> <span class="price-amount">₹15,000</span></li>
+                            <li class="price-item"><span class="price-duration">20 Sessions</span> <span class="price-amount">₹22,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-outline hover-target" style="color: var(--brown-dark); border-color: var(--brown-dark);"><span>Book Demo</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gym Tab -->
+            <div class="pricing-content" id="tab-gym">
+                <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
+                    
+                    <div class="pricing-card reveal-up">
+                        <h3 class="pricing-title">General Training</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Month</span> <span class="price-amount">₹6,000</span></li>
+                            <li class="price-item"><span class="price-duration">3 Months</span> <span class="price-amount">₹16,000</span></li>
+                            <li class="price-item"><span class="price-duration">6 Months</span> <span class="price-amount">₹28,000</span></li>
+                            <li class="price-item"><span class="price-duration">12 Months</span> <span class="price-amount">₹50,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-outline hover-target" style="color: var(--brown-dark); border-color: var(--brown-dark);"><span>Book Demo</span></a>
+                    </div>
+                    
+                    <div class="pricing-card popular reveal-up" style="transition-delay: 0.1s">
+                        <div class="popular-badge">1:1 Coaching</div>
+                        <h3 class="pricing-title">Personal Training</h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Month</span> <span class="price-amount">₹15,000</span></li>
+                            <li class="price-item"><span class="price-duration">3 Months</span> <span class="price-amount">₹42,000</span></li>
+                            <li class="price-item"><span class="price-duration">6 Months</span> <span class="price-amount">₹75,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary hover-target"><span>Book Demo</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combo Tab -->
+            <div class="pricing-content" id="tab-combo">
+                <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
+                    
+                    <div class="pricing-card reveal-up">
+                        <h3 class="pricing-title">Strength + Pilates<br><span style="font-size:1rem; font-weight:400; font-family:'DM Sans', sans-serif;">(3 Days + 3 Days)</span></h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Month</span> <span class="price-amount">₹8,000</span></li>
+                            <li class="price-item"><span class="price-duration">3 Months</span> <span class="price-amount">₹21,000</span></li>
+                            <li class="price-item"><span class="price-duration">6 Months</span> <span class="price-amount">₹40,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-outline hover-target" style="color: var(--brown-dark); border-color: var(--brown-dark);"><span>Book Demo</span></a>
+                    </div>
+                    
+                    <div class="pricing-card popular reveal-up" style="transition-delay: 0.1s">
+                        <div class="popular-badge">⭐ Ultimate Result</div>
+                        <h3 class="pricing-title">The 3-2-1 Program<br><span style="font-size:1rem; font-weight:400; font-family:'DM Sans', sans-serif;">(3 Pilates + 2 Strength + 1 HIIT)</span></h3>
+                        <ul class="price-list">
+                            <li class="price-item"><span class="price-duration">1 Month</span> <span class="price-amount">₹15,000</span></li>
+                            <li class="price-item"><span class="price-duration">3 Months</span> <span class="price-amount">₹42,000</span></li>
+                            <li class="price-item"><span class="price-duration">6 Months</span> <span class="price-amount">₹75,000</span></li>
+                        </ul>
+                        <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary hover-target"><span>Book Demo</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="bg-dark" id="schedule">
+        <div class="container">
+            <div class="section-header reveal-clip">
+                <div class="section-label font-label" style="color: var(--gold-accent);">Time Details</div>
+                <h2 class="section-title">Schedule Your Excellence</h2>
+            </div>
+            
+            <div class="schedule-blocks">
+                <div class="schedule-block reveal-up">
+                    <h3 class="schedule-title">Pilates Studio</h3>
+                    <div class="time-row">
+                        <div class="time-label">Morning</div>
+                        <div class="time-value">6:00 AM — 1:00 PM</div>
+                    </div>
+                    <div class="time-row">
+                        <div class="time-label">Evening</div>
+                        <div class="time-value">4:00 PM — 8:00 PM</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-block reveal-up" style="transition-delay: 0.2s">
+                    <h3 class="schedule-title">Gym Access</h3>
+                    <div class="time-row">
+                        <div class="time-label">Morning</div>
+                        <div class="time-value">6:00 AM — 1:00 PM</div>
+                    </div>
+                    <div class="time-row">
+                        <div class="time-label">Evening</div>
+                        <div class="time-value">4:00 PM — 10:00 PM</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;" class="reveal-up">
+                <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary hover-target"><span>Check Availability → Book Now</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="bg-cream">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item hover-target reveal-up">
+                    <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=600&q=60" alt="Pilates" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">The Athletic Edge</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=60" alt="Gym" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Premium Environment</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=60" alt="Weights" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Strength</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up">
+                    <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=60" alt="Studio" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Boutique Setup</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=60" alt="Training" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Personal Coaching</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="bg-cream" style="padding-top: 2rem;">
+        <div class="container" style="text-align: center;">
+            <div class="section-label font-label reveal-up">Follow Our Journey</div>
+            <h2 class="section-title reveal-up" style="font-size: 2rem; margin-bottom: 2rem;">@theathletic.edge</h2>
+            
+            <div class="instagram-grid reveal-up">
+                <div class="ig-item"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&h=300&fit=crop" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div class="ig-item"><img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=300&h=300&fit=crop" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div class="ig-item"><img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=300&h=300&fit=crop" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div class="ig-item"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&h=300&fit=crop" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div class="ig-item"><img src="https://images.unsplash.com/photo-1522898467493-49726bf28798?w=300&h=300&fit=crop" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div class="ig-item"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=300&h=300&fit=crop" style="width:100%; height:100%; object-fit:cover;"></div>
+            </div>
+            
+            <a href="https://www.instagram.com/theathletic.edge" target="_blank" class="btn btn-outline hover-target" style="color: var(--brown-dark); border-color: var(--brown-dark);">
+                <span>Follow on Instagram</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" style="padding-bottom: 0;">
+        <div class="contact-split">
+            <div class="contact-info">
+                <div class="section-label font-label" style="color: var(--gold-accent);">Get In Touch</div>
+                <h2 class="section-title" style="color: var(--cream); margin-bottom: 3rem;">Begin Your<br>Transformation</h2>
+                
+                <div class="contact-item">
+                    <span class="contact-label">Location</span>
+                    <div class="contact-value">
+                        150-H Block, BRS Nagar, Main Road,<br>
+                        Opp. Makkar Stationary, Ludhiana, Punjab
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">Phone / WhatsApp</span>
+                    <div class="contact-value"><a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="hover-target">9915677110</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <div class="contact-value"><a href="mailto:theathleticedge9@gmail.com" class="hover-target">theathleticedge9@gmail.com</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-label">Studio Hours</span>
+                    <div class="contact-value" style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: rgba(245, 241, 235, 0.6);">Mon – Sat: 6 AM – 10 PM</div>
+                </div>
+                
+                <a href="https://wa.me/919915677110?text=Hi%20I%20want%20to%20join%20Athletic%20Edge" target="_blank" class="btn btn-primary hover-target" style="margin-top: 2rem; background-color: #25d366; border-color: #25d366;">
+                    <span>Chat on WhatsApp</span>
+                </a>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.8234857413!2d75.8073573!3d30.8914611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a83b27b9c6dc7%3A0x6bba8ea8f7d98be7!2sBRS%20Nagar%20Main%20Rd%2C%20Ludhiana%2C%20Punjab!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="assests/final%20logo.png" alt="The Athletic Edge" class="footer-logo">
+            <div class="font-subheading" style="color: var(--gold-accent); margin-bottom: 2rem;">Pilates Studio & Gym</div>
+            
+            <div class="footer-links">
+                <a href="#home" class="hover-target">Home</a>
+                <a href="#services" class="hover-target">Services</a>
+                <a href="#philosophy" class="hover-target">Philosophy</a>
+                <a href="#pricing" class="hover-target">Pricing</a>
+            </div>
+            
+            <p class="copy">&copy; 2025 The Athletic Edge. All rights reserved.<br><span style="opacity: 0.5;">Designed with ❤️ in Ludhiana</span></p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Custom Cursor
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Dot follows instantly
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+
+        // Lerp function for smooth ring chase
+        function lerp(start, end, factor) {
+            return start + (end - start) * factor;
+        }
+
+        function animateCursor() {
+            ringX = lerp(ringX, mouseX, 0.15);
+            ringY = lerp(ringY, mouseY, 0.15);
+            
+            cursorRing.style.left = `${ringX}px`;
+            cursorRing.style.top = `${ringY}px`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effects on cursor
+        const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            target.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
+
+        // Preloader & Hero Animation Sequence
+        function startSite() {
+            const preloader = document.getElementById('preloader');
+            if (!preloader || preloader.style.top === '-100%') return; // Already started
+            
+            preloader.style.top = '-100%';
+            
+            // Trigger Hero text animations
+            setTimeout(() => {
+                // Split text animation for title
+                const titleLines = document.querySelectorAll('.hero-title span:not(.word)');
+                titleLines.forEach((line, i) => {
+                    const words = line.innerText.split(' ');
+                    line.innerHTML = '';
+                    words.forEach((word, j) => {
+                        const span = document.createElement('span');
+                        span.classList.add('word');
+                        span.innerText = word + ' ';
+                        span.style.animation = `slideUpWord 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${(i * 2 + j) * 0.1 + 0.3}s`;
+                        line.appendChild(span);
+                    });
+                });
+
+                // Subtitle fade in
+                const subtitle = document.querySelector('.hero-subtitle');
+                if(subtitle) subtitle.style.animation = 'fadeInUp 1s ease forwards 0.8s';
+                
+                // Tagline fade in
+                const tagline = document.querySelector('.hero-tagline');
+                if(tagline) tagline.style.animation = 'fadeInUp 1s ease forwards 1s';
+                
+                // Buttons fade in
+                const btns = document.querySelector('.hero-btns');
+                if(btns) btns.style.animation = 'fadeInUp 1s ease forwards 1.2s';
+                
+            }, 800);
+        }
+
+        // Run on load
+        window.addEventListener('load', startSite);
+
+        // Safety fallback: Start after 3 seconds anyway if load event is slow
+        setTimeout(startSite, 3000);
+
+        // Dynamic keyframes injection for JS animations
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes slideUpWord {
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInUp {
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax & Sticky Navbar
+        const navbar = document.getElementById('navbar');
+        const heroBg = document.getElementById('hero-bg');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // Navbar shrink (Triggered slightly later to account for top banner)
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Hero Parallax (0.4x speed)
+            if(heroBg) {
+                heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-in-view', 'in-view');
+                    // Stop observing once animated
+                    if(entry.target.classList.contains('reveal-up') || entry.target.classList.contains('reveal-clip')){
+                        scrollObserver.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up, .reveal-clip, .philosophy-img').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Pricing Tabs Logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.pricing-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked
+                btn.classList.add('active');
+                const targetId = `tab-${btn.getAttribute('data-tab')}`;
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Smooth Scroll with Offset for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    
+                    const navHeight = navbar.offsetHeight;
+                    const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
