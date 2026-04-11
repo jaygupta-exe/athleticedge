@@ -835,23 +835,18 @@
         .philosophy-img-wrap {
             flex: 1;
             position: relative;
-            height: 80vh;
+            height: auto;
             overflow: hidden;
+            display: flex;
         }
 
         .philosophy-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             object-position: center;
-            transform: scale(1.1);
-            transition: transform 1.5s ease-out;
         }
         
-        .philosophy-img.in-view {
-            transform: scale(1);
-        }
-
         .philosophy-content {
             flex: 1;
             padding: 5rem 6rem;
@@ -917,13 +912,13 @@
         }
 
         .coach-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--gold-accent);
-            margin-bottom: 2rem;
-            filter: grayscale(30%);
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            object-fit: contain;
+            border: none;
+            margin-bottom: 1.5rem;
+            filter: grayscale(15%);
             transition: filter 0.5s ease, transform 0.5s ease;
         }
 
@@ -1370,7 +1365,7 @@
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .philosophy-split, .coaches-wrap, .contact-split { flex-direction: column; }
             .philosophy-content { margin-left: 0; margin-top: -5%; padding: 4rem 2rem; }
-            .philosophy-img-wrap { height: 50vh; width: 100%; }
+            .philosophy-img-wrap { height: auto; width: 100%; }
             .schedule-blocks { grid-template-columns: 1fr; }
             .why-us-grid { grid-template-columns: repeat(2, 1fr); }
             .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1629,7 +1624,29 @@
     <section class="bg-cream" id="philosophy" style="padding-top: 0;">
         <div class="philosophy-split container">
             <div class="philosophy-img-wrap">
-                <video src="assests/pilates%20intro.mp4" class="philosophy-img" autoplay loop muted playsinline loading="lazy"></video>
+                <video id="philosophyVideo" src="assests/pilates%20intro.mp4" class="philosophy-img" autoplay loop muted playsinline loading="lazy"></video>
+                <button id="muteToggleBtn" style="position: absolute; bottom: 20px; right: 20px; z-index: 10; background: rgba(0,0,0,0.6); color: var(--gold-accent); border: 1px solid var(--gold-accent); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(0,0,0,0.8)'; this.style.transform='scale(1.1)';" onmouseout="this.style.background='rgba(0,0,0,0.6)'; this.style.transform='scale(1)';">
+                    <svg id="muteIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                </button>
+                <script>
+                    document.getElementById('muteToggleBtn').addEventListener('click', function() {
+                        const video = document.getElementById('philosophyVideo');
+                        const icon = document.getElementById('muteIcon');
+                        
+                        // User interacting with button means we can safely toggle mute
+                        video.muted = !video.muted;
+                        
+                        if (video.muted) {
+                            icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+                        } else {
+                            icon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+                        }
+                    });
+                </script>
             </div>
             <div class="philosophy-content reveal-up">
                 <div class="section-label font-label">Our Philosophy</div>
@@ -1724,7 +1741,7 @@
             
             <div class="coaches-wrap">
                 <div class="coach-card large reveal-up">
-                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=300&q=80" alt="Harry Mittal" class="coach-img">
+                    <img src="assests/harry%20mittal.jpeg" alt="Harry Mittal" class="coach-img">
                     <h3 class="coach-name">Harry Mittal</h3>
                     <div class="coach-title font-label">Founder & Head Coach</div>
                     <p class="coach-creds">Certified by ACE, ISSA & ACSM</p>
@@ -1733,7 +1750,10 @@
                 </div>
                 
                 <div class="coach-card reveal-up" style="transition-delay: 0.2s">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Srishti Behal Mittal" class="coach-img">
+                    <div style="position: relative; width: 100%; height: 450px; margin-bottom: 1.5rem;">
+                        <img src="assests/shrishti%20mittal.jpeg" alt="Srishti Behal Mittal" class="coach-img slider-img" style="position: absolute; top: 0; left: 0; margin-bottom: 0; opacity: 1; transition: opacity 0.8s ease;">
+                        <img src="assests/shrishti%20mitta%202.jpeg" alt="Srishti Behal Mittal" class="coach-img slider-img" style="position: absolute; top: 0; left: 0; margin-bottom: 0; opacity: 0; transition: opacity 0.8s ease;">
+                    </div>
                     <h3 class="coach-name">Srishti Behal Mittal</h3>
                     <div class="coach-title font-label">Co-Founder · Pilates & Nutrition Expert</div>
                     <p class="coach-creds">Certified Nutritionist & Pilates Instructor</p>
@@ -1741,6 +1761,19 @@
                     <p style="margin-top: 1.5rem; color: rgba(245, 241, 235, 0.7); font-weight: 300;">Integrating holistic nutrition with the art of Pilates, Srishti empowers clients globally to achieve sustainable wellness, flexibility, and core strength.</p>
                 </div>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const sliderImages = document.querySelectorAll('.slider-img');
+                    if(sliderImages.length > 0) {
+                        let currentIdx = 0;
+                        setInterval(() => {
+                            sliderImages[currentIdx].style.opacity = '0';
+                            currentIdx = (currentIdx + 1) % sliderImages.length;
+                            sliderImages[currentIdx].style.opacity = '1';
+                        }, 2000);
+                    }
+                });
+            </script>
         </div>
     </section>
 
