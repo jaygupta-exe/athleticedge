@@ -1144,13 +1144,9 @@
 
         .gallery-item {
             position: relative;
-            height: 400px;
+            height: 350px;
             overflow: hidden;
-        }
-        
-        .gallery-item:nth-child(2) {
-            grid-row: span 2;
-            height: auto;
+            border-radius: 8px;
         }
 
         .gallery-img {
@@ -1195,16 +1191,28 @@
         /* Social / Instagram */
         .instagram-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-top: 3rem;
             margin-bottom: 4rem;
         }
 
         .ig-item {
-            aspect-ratio: 1;
             position: relative;
             overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 9/16;
+        }
+
+        .ig-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .ig-item:hover video {
+            transform: scale(1.05);
         }
 
         /* Contact & Footer */
@@ -1934,24 +1942,40 @@
         <div class="container">
             <div class="gallery-grid">
                 <div class="gallery-item hover-target reveal-up">
-                    <img src="assests/images/image-1.jpeg" alt="Pilates" class="gallery-img" loading="lazy">
+                    <img src="assests/images/image-1.jpeg" alt="The Athletic Edge" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay"><span class="gallery-text">The Athletic Edge</span></div>
                 </div>
                 <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.1s">
-                    <img src="assests/images/image-2.jpeg" alt="Gym" class="gallery-img" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-text">Premium Environment</span></div>
+                    <img src="assests/images/image-2.jpeg" alt="Premium Studio" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Premium Studio</span></div>
                 </div>
                 <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.2s">
-                    <img src="assests/images/image-3.jpeg" alt="Weights" class="gallery-img" loading="lazy">
+                    <img src="assests/images/image-3.jpeg" alt="Strength Training" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay"><span class="gallery-text">Strength</span></div>
                 </div>
                 <div class="gallery-item hover-target reveal-up">
-                    <img src="assests/images/image-4.jpeg" alt="Studio" class="gallery-img" loading="lazy">
+                    <img src="assests/images/image-4.jpeg" alt="Boutique Setup" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay"><span class="gallery-text">Boutique Setup</span></div>
                 </div>
-                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.2s">
-                    <img src="assests/images/image-5.jpeg" alt="Training" class="gallery-img" loading="lazy">
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.1s">
+                    <img src="assests/images/image-5.jpeg" alt="Personal Coaching" class="gallery-img" loading="lazy">
                     <div class="gallery-overlay"><span class="gallery-text">Personal Coaching</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.2s">
+                    <img src="assests/images/image-6.jpeg" alt="Pilates Studio" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Pilates Studio</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up">
+                    <img src="assests/images/image-7.jpeg" alt="Fitness" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Fitness</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.1s">
+                    <img src="assests/images/image-8.jpeg" alt="Training Zone" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Training Zone</span></div>
+                </div>
+                <div class="gallery-item hover-target reveal-up" style="transition-delay: 0.2s">
+                    <img src="assests/images/image-9.jpeg" alt="Equipment" class="gallery-img" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-text">Premium Equipment</span></div>
                 </div>
             </div>
         </div>
@@ -1964,12 +1988,9 @@
             <h2 class="section-title reveal-up" style="font-size: 2rem; margin-bottom: 2rem;">@theathletic.edge</h2>
             
             <div class="instagram-grid reveal-up">
-                <div class="ig-item"><img src="assests/images/image-6.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-                <div class="ig-item"><img src="assests/images/image-7.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-                <div class="ig-item"><img src="assests/images/image-8.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-                <div class="ig-item"><img src="assests/images/image-9.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-                <div class="ig-item"><img src="assests/images/image-3.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
-                <div class="ig-item"><img src="assests/images/image-4.jpeg" style="width:100%; height:100%; object-fit:cover;"></div>
+                <div class="ig-item"><video src="assests/images/video-1.mp4" autoplay loop muted playsinline></video></div>
+                <div class="ig-item"><video src="assests/images/video-2.mp4" autoplay loop muted playsinline></video></div>
+                <div class="ig-item"><video src="assests/images/video-3.mp4" autoplay loop muted playsinline></video></div>
             </div>
             
             <a href="https://www.instagram.com/theathletic.edge" target="_blank" class="btn btn-outline hover-target" style="color: var(--brown-dark); border-color: var(--brown-dark);">
