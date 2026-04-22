@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jaygupta-exe.github.io/athleticedge/sitemap.xml
